@@ -19,7 +19,7 @@ const blogPosts = [
 ];
 
 const Blog = props => {
-    const { url } = useRouteMatch();
+    const { path, url } = useRouteMatch();
 return (
     <>
     <h1>This is the blog</h1>
@@ -32,6 +32,9 @@ return (
             ))
         }
     </nav>
+    <Route exact path={path}>
+        <h2>Please select a blog post.</h2>
+    </Route>
     <Route path={`${url}/:id`}>
         <Post posts={blogPosts} />
     </Route>
